@@ -40,7 +40,7 @@ func slow(c web.C, w http.ResponseWriter, r *http.Request) {
     &lt;/code&gt;
 &lt;/pre&gt;
 
-&lt;p&gt;Noice!&lt;/p&gt;
+&lt;p&gt;Noice! Test change.&lt;/p&gt;
 </description>
     </item>
     
