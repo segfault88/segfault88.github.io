@@ -5,8 +5,64 @@
     <link>http://segfault88.github.io/categories/golang/</link>
     <description>Recent content in Golang on segfault88 / Malcolm Lockyer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 09 Aug 2015 17:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://segfault88.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>WaitGroup gotcha</title>
+      <link>http://segfault88.github.io/posts/wg-gotcha/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://segfault88.github.io/posts/wg-gotcha/</guid>
+      <description>&lt;p&gt;Quick, what is wrong with this Go code?&lt;/p&gt;
+
+&lt;pre&gt;
+    &lt;code data-language=&#34;go&#34;&gt;package main
+
+import (
+    &#34;log&#34;
+    &#34;math/rand&#34;
+    &#34;sync&#34;
+    &#34;time&#34;
+)
+
+func main() {
+    var wg sync.WaitGroup
+
+    for i := 0; i &lt; 100; i++ {
+        wg.Add(1)
+        go doWork(i, wg)
+    }
+
+    log.Println(&#34;Starting to wait&#34;)
+    wg.Wait()
+    log.Println(&#34;Done&#34;)
+}
+
+func doWork(i int, wg sync.WaitGroup) {
+    defer wg.Done()
+    sleepTime := time.Duration(rand.Int31n(10000000))
+    time.Sleep(sleepTime)
+    log.Printf(&#34;%d slept for %d&#34;, i, sleepTime)
+}
+    &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Answer - the &lt;a href=&#34;http://golang.org/pkg/sync/#WaitGroup&#34;&gt;WaitGroup&lt;/a&gt; is passed as a value. Internally WaitGroups are structs with a contained integer that gets atomically incremented and decremented. So by passing a value, the internal count gets copied and the copy gets decremented when Done() is called. So this is a deadlock. &lt;a href=&#34;https://github.com/segfault88/misc-go/blob/master/wg-gotcha-fixed.go&#34;&gt;Fixed code here&lt;/a&gt;, simply pass it as a pointer. Helpfully Go will warn you about this:&lt;/p&gt;
+
+&lt;pre&gt;
+    &lt;code data-language=&#34;bash&#34;&gt;
+$ go vet wg-gotcha.go
+
+wg-gotcha.go:23: doWork passes Lock by value: sync.WaitGroup contains sync.Mutex
+
+exit status 1
+    &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;So, moral of the story: Don&amp;rsquo;t pass WaitGroups around by value, and always run &lt;a href=&#34;http://godoc.org/golang.org/x/tools/cmd/vet&#34;&gt;go vet&lt;/a&gt;!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Ruby vs. Go 1</title>
