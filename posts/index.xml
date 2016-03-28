@@ -5,8 +5,38 @@
     <link>http://segfault88.github.io/posts/</link>
     <description>Recent content in Posts on segfault88 / Malcolm Lockyer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 10 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Mar 2016 17:30:00 +0000</lastBuildDate>
     <atom:link href="http://segfault88.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Railscamp 2016</title>
+      <link>http://segfault88.github.io/posts/railscamp2016/</link>
+      <pubDate>Mon, 28 Mar 2016 17:30:00 +0000</pubDate>
+      
+      <guid>http://segfault88.github.io/posts/railscamp2016/</guid>
+      <description>&lt;p&gt;I attended Railscamp 2016 in Wellington NZ last weekend. Just wanted to collect a couple of notes on some stuff I saw there.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-flickr-embed=&#34;true&#34;  href=&#34;https://www.flickr.com/photos/terrcin/25944057056/in/pool-2957873@N23/&#34; title=&#34;NZ Rails Camp 2016&#34;&gt;&lt;img src=&#34;https://farm2.staticflickr.com/1492/25944057056_8871390f92_c.jpg&#34; width=&#34;800&#34; height=&#34;245&#34; alt=&#34;NZ Rails Camp 2016&#34;&gt;&lt;/a&gt;&lt;script async src=&#34;//embedr.flickr.com/assets/client-code.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The location was YMCA Camp Kaitoke, which was a really awesome venue. There was a lot of really awesome beer from local breweries too! Really good other drinks and stuff. Just above is a view from the deck of the main area.&lt;/li&gt;
+&lt;li&gt;Saw an interesting talk by &lt;a href=&#34;https://twitter.com/raquelxmoss&#34;&gt;@raquelxmoss&lt;/a&gt; about &amp;ldquo;Creating a welcoming space for beginners&amp;rdquo;, she wrote up some notes here: &lt;a href=&#34;http://www.raquelmoss.com/creating-a-welcoming-space-for-beginners/&#34;&gt;http://www.raquelmoss.com/creating-a-welcoming-space-for-beginners/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I got a chance to have a chat with Raquel about increasing diversity in the programming/IT/Tech industry. I realize that I am bad at this and would like to help (well, atleast not scare away women from learning and/or being included in technology stuff). Raquel also linked me to really useful resource here:  &lt;a href=&#34;http://conference.hopper.org.nz/&#34;&gt;http://conference.hopper.org.nz/&lt;/a&gt; which I must study soon.&lt;/li&gt;
+&lt;li&gt;Saw a really interesting talk from &lt;a href=&#34;https://twitter.com/terrcin&#34;&gt;@terrcin&lt;/a&gt; about &amp;ldquo;Monday Madness! or Why we don&amp;rsquo;t use Scrum, and what we do instead&amp;rdquo;. He ran the same talk for the Auckland Ruby meetup, which I was unable to make it to due to something coming up last minute. That was a shame, but I&amp;rsquo;m looking forward to seeing slides soon as I thought there were a bunch of really awesome ideas there.&lt;/li&gt;
+&lt;li&gt;There was a strong interest in Elixir and Phoenix. On the last night the question was asked: &amp;ldquo;Who has worked on or thought about Elixir/Phoenix stuff this weekend&amp;rdquo; with approximately &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; of the room putting up their hands. Maybe we are going to see a mass surge in use soon&amp;hellip; I think aside from Machine Learning, Elixir is the next thing I want to learn - it has a lot of really interesting stuff, and seems really pretty easy to learn and understand. Also thee were a few talks about it, like this from Nigel who works for AddressFinder: &lt;a href=&#34;http://blog.addressfinder.com.au/post/141506070132/elixir-new-tool-in-the-toolkit&#34;&gt;http://blog.addressfinder.com.au/post/141506070132/elixir-new-tool-in-the-toolkit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Warewolf (the game) was extremely popular, and many games were played. I think Railscamp is a little bit of a misnomer, maybe something like &amp;ldquo;Beer and Warewolf camp&amp;rdquo; might be more accurate. It was really a great time.&lt;/li&gt;
+&lt;li&gt;The Ruby NZ AGM was held - that was kind of interesting. Cool to see a proper organization that &amp;ldquo;fosters and supports the Ruby programming language, its users and community in New Zealand&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Also - &lt;a href=&#34;http://artctrl.me/posts/nzrailscamp.html&#34;&gt;Art of Railscamp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Couple random pictures on Flickr here: &lt;a href=&#34;https://www.flickr.com/groups/2957873@N23/&#34;&gt;https://www.flickr.com/groups/2957873@N23/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So as a full time Go developer now with very little to do with Ruby, why did I go to Railscamp? Because the Ruby community is &lt;strong&gt;awesome&lt;/strong&gt;. I definitely want to go to future events! Thanks to the organisers and everyone else for making it a great long weekend.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-flickr-embed=&#34;true&#34;  href=&#34;https://www.flickr.com/photos/macleod_merrin/25339697663/in/pool-2957873@N23/&#34; title=&#34;Group photo&#34;&gt;&lt;img src=&#34;https://farm2.staticflickr.com/1638/25339697663_cf0954171f_c.jpg&#34; width=&#34;800&#34; height=&#34;534&#34; alt=&#34;Group photo&#34;&gt;&lt;/a&gt;&lt;script async src=&#34;//embedr.flickr.com/assets/client-code.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;TODO:&lt;/em&gt; Think about starting a Railsnoobs meetup in Auckland.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>WaitGroup gotcha</title>
