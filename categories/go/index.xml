@@ -15,7 +15,9 @@
       
       <guid>http://segfault88.github.io/posts/gonews/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.kickstarter.com/projects/1604791210/go-gopher-toy&#34;&gt;Real Gopher!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kickstarter.com/projects/1604791210/go-gopher-toy&#34;&gt;Real Gopher!&lt;/a&gt; Kickstarter project&lt;/li&gt;
+&lt;li&gt;Dave Cheney - SOLID Go Design &lt;a href=&#34;https://www.youtube.com/watch?v=zzAdEt3xZ1M&#34;&gt;Video from Golang UK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Paul Bellamy - Advanced Patterns with io ReadWriter &lt;a href=&#34;https://www.youtube.com/watch?v=kTAsciVuZLQ&#34;&gt;Video from Golang UK&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
