@@ -7,7 +7,7 @@
 
     <meta name="description" content="Go, Ruby and other stuff">
 
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.16" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Posts &middot; segfault88 / Malcolm Lockyer">
@@ -73,6 +73,30 @@
         <div>
             
             <div class="posts">
+                
+                <h1 class="content-subhead">14 Sep 2016, 16:30</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://segfault88.github.io/posts/gonews/" class="post-title">Go News</a>
+
+                        <p class="post-meta">
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-go" href="http://segfault88.github.io//categories/go">go</a><a class="post-category post-category-golang" href="http://segfault88.github.io//categories/golang">golang</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <ul>
+<li><a href="https://www.kickstarter.com/projects/1604791210/go-gopher-toy">Real Gopher!</a></li>
+</ul>
+
+                    </div>
+                </section>
                 
                 <h1 class="content-subhead">28 Mar 2016, 17:30</h1>
                 <section class="post">
@@ -206,7 +230,7 @@ exit status 1
 
 <p>A co-worker built a simple internal tool in Ruby with Sinatra. This tool is essentially a simple front end to a bunch of little simple REST apis. It is a bit slow, but that is okay a ~30 second load time is okay since it is only occasional internal use. I thought to myself looking at the code, with not much more effort you could build a solution in Go / Golang that would work a whole lot better. This isn&rsquo;t the most scientific of comparisons, and you could do a better job with EventMachine - but for now, this is about simulating what the &lsquo;real life&rsquo; ruby solution looks like. The whole project is available on Github here: <a href="https://github.com/segfault88/rubyvgo1">https://github.com/segfault88/rubyvgo1</a> so you can follow along.</p>
 
-<h2 id="the-api:83f2b8cce6add0719eda54d48c55f20b">The API</h2>
+<h2 id="the-api">The API</h2>
 
 <p>I built a simple simulation of the APIs being called. I threw something together in Go, basically it&rsquo;s like this:
 * /slow - sleeps for 200-400 ms then returns
@@ -260,7 +284,7 @@ func main() {
     </code>
 </pre>
 
-<h2 id="ruby-implementation:83f2b8cce6add0719eda54d48c55f20b">Ruby implementation</h2>
+<h2 id="ruby-implementation">Ruby implementation</h2>
 
 <p>The entire Ruby version with Sinatra looks like this:</p>
 
@@ -303,7 +327,7 @@ end
 
 <p>The first 2 columns load 2-400ms. Column 3 and 4 loads in 50-100ms 50% of the time, 3 seconds otherwise. Column 5 takes 10 seconds.</p>
 
-<h2 id="go-simple:83f2b8cce6add0719eda54d48c55f20b">Go simple</h2>
+<h2 id="go-simple">Go simple</h2>
 
 <p>Go&rsquo;s net/http package is GREAT. We can make a similar system, that actually looks pretty similar to what we do in Ruby. All we need is this:</p>
 
@@ -321,7 +345,7 @@ end
 
 <p>This is great, it loads a bunch faster. However, the tool works by doing an AJAX request for each &lsquo;cell&rsquo;. Normal brower rules means that only 2 AJAX requests can be outstanding. So it loads a bit faster, and potentially allows more users (the Ruby version only has 2 workers which get blocked when doing the API call), it&rsquo;s not that much faster. Sadface, fail. Let&rsquo;s try another way.</p>
 
-<h2 id="go-polling:83f2b8cce6add0719eda54d48c55f20b">Go polling</h2>
+<h2 id="go-polling">Go polling</h2>
 
 <p>So, let&rsquo;s kick off go-routines immediately on page load, then send updates in batches. Check out the whole file here: <a href="https://github.com/segfault88/rubyvgo1/blob/master/go-poll/main.go">https://github.com/segfault88/rubyvgo1/blob/master/go-poll/main.go</a> - this is pretty easy, the interesting part is really this:</p>
 
@@ -367,7 +391,7 @@ end
 
 <p>This works muuuch faster!</p>
 
-<h2 id="go-websocket:83f2b8cce6add0719eda54d48c55f20b">Go websocket</h2>
+<h2 id="go-websocket">Go websocket</h2>
 
 <p>Since we&rsquo;re here, lets also try a websocket. Using the &ldquo;github.com/gorilla/websocket&rdquo; library makes it a snap to upgrade to a websocket. Again, the code is here: <a href="https://github.com/segfault88/rubyvgo1/blob/master/go-websocket/main.go">https://github.com/segfault88/rubyvgo1/blob/master/go-websocket/main.go</a> - all you need to do is:</p>
 
@@ -419,7 +443,7 @@ func wsRoute(w http.ResponseWriter, r *http.Request) {
 
 <p>Easy, and really fast.</p>
 
-<h2 id="comparison:83f2b8cce6add0719eda54d48c55f20b">Comparison</h2>
+<h2 id="comparison">Comparison</h2>
 
 <p>I did a quick record to a YouTube video to show the relative versions.</p>
 
@@ -427,7 +451,7 @@ func wsRoute(w http.ResponseWriter, r *http.Request) {
 
 <p>Ruby is slow, it&rsquo;s stuck with 2 workers so it blocks a lot. The go version is a fair bit faster, but the limit of 2 outstanding AJAX connections makes it slowish. The polling version is pretty good, and the websocket version is excellent.</p>
 
-<h2 id="conclusion:83f2b8cce6add0719eda54d48c55f20b">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 
 <p>So the original idea for this post is to show that with a <strong>little</strong> more effort, it&rsquo;s easy to get a much better result working in Go. If you look a pure number of lines the go websocket version is something like 3x more than Ruby. However, it works so much faster, will &lsquo;scale&rsquo; and IMO easier to work with in the future.</p>
 
